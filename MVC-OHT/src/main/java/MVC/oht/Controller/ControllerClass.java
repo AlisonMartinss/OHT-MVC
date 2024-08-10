@@ -10,7 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ControllerClass {
 
     @GetMapping
-    public String hello (Model model) {
+    public String home (Model model) {
         return "home";
+    }
+
+    @GetMapping("/login")
+    public String home() {
+        return "login";
+    }
+
+    @GetMapping("/cadastro")
+    public String cadastro() {
+        return "cadastro";
     }
 }

@@ -6,7 +6,7 @@
     <title>Orgão Hipotético de Trânsito</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-    <link rel="stylesheet" th:href="@{/CSS/style.css}" href="/CSS/arquivo.css">
+    <link rel="stylesheet" th:href="@{/CSS/style.css}" href="../static/CSS/style.css">
     
     <script src="../cod-JS/index.js" defer type="module" ></script>
 
@@ -19,9 +19,9 @@
         <div class="cabecalho">
             <a class="indices_nav" >Quem Somos</a>
 
-            <a class="indices_nav" href="../pages/login.html">Login</a>
+            <a class="indices_nav" th:href="@{principal/login}">Login</a>
     
-            <a data-cadainicial class="indices_nav" href="./cadastro.html">Cadastro</a>
+            <a data-cadainicial class="indices_nav" th:href="@{principal/cadastro}">Cadastro</a>
         </div>
 
     </header>
