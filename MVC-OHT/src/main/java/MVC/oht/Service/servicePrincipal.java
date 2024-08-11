@@ -4,6 +4,7 @@ import MVC.oht.EntityJPA.entityMulta;
 import MVC.oht.Records.recordMulta;
 import MVC.oht.Repository.repositoryMulta;
 import MVC.oht.SpecialClasses.PanatioService;
+import MVC.oht.SpecialClasses.servicyCEP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -19,10 +20,13 @@ public class servicePrincipal {
     private PanatioService pagination;
     @Autowired
     private repositoryMulta repositoyMultaa;
+    @Autowired
+    private servicyCEP serviceCEP;
 
     @Transactional
     public ResponseEntity Creating(@RequestBody recordMulta multa) {
-        var User = new entityMulta(multa);
+        var endereco = serviceCEP.searchCEP(multa.cep());
+        var User = new entityMulta(multa,endereco);
         repositoyMultaa.save(User);
         return ResponseEntity.ok().build();
     }

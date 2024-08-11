@@ -2,7 +2,9 @@ package MVC.oht.EntityJPA;
 
 import MVC.oht.Records.Enums.Causa;
 import MVC.oht.Records.Enums.Situacao;
+import MVC.oht.Records.recordCEP;
 import MVC.oht.Records.recordMulta;
+import MVC.oht.SpecialClasses.servicyCEP;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
@@ -38,12 +40,13 @@ public class entityMulta {
 
     private String CPF;
 
-    public entityMulta(recordMulta multa) {
+    public entityMulta(recordMulta multa, recordCEP recordCEP) {
         this.CPF = multa.cpf();
         this.codAgente = multa.codAgente();
         this.data = multa.data();
         this.ocorrido = multa.causa();
         this.situacao = multa.situacao();
         this.valor = multa.valor();
+        this.endereco = new Enderecamento(recordCEP);
     }
 }
